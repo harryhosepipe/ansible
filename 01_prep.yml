@@ -21,6 +21,11 @@
       register: package_updated
       ignore_errors: yes
 
+    - name: Install stow
+      package:
+        name: stow
+        state: present
+
     - name: Install OpenSSH
       package:
         name: openssh

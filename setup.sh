@@ -8,3 +8,13 @@ eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/github-ssh
 
 git clone git@github.com:harryhosepipe/slingshot.git ~/slingshot
+
+sudo rm ~/.bashrc
+sudo rm ~/.bash_profile
+
+mkdir ~/bin
+mkdir ~/.config
+
+stow -d ~/slingshot bash-shell
+stow -d ~/slingshot bin
+stow -d ~/slingshot .ssh
