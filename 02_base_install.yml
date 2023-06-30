@@ -18,5 +18,6 @@
           - stow
           - neovim
           - exa
+          - keepassxc
         state: present
 ...

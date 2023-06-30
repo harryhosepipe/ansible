@@ -1,0 +1,13 @@
+- name: PRIME THE SYSTEM BRO!
+  hosts: localhost
+  become: yes
+  
+  tasks:
+
+  - name: Change git remote URL to SSH
+    ansible.builtin.shell: |
+      cd ~/ansible
+      git remote set-url origin git@github.com:harryhosepipe/ansible.git
+    args:
+      executable: /bin/bash
+

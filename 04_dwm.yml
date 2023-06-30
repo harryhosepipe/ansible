@@ -25,37 +25,38 @@
           - ttf-terminus-nerd
           - unclutter
 
-    - name: Create bin dir if it doesnt exist
-      file:
-        path: "~/bin"
-        state: directory
-        mode: 0755
-      become: yes
-      become_user: pablo
-
-    - name: Check if suckless folder exists
-      stat:
-        path: "~/bin/suckless"
-      register: suckless_folder
-
-    - name: Clone Dwm repo
-      git:
-        repo: 'https://github.com/harryhosepipe/suckless.git'
-        dest: "~/bin/suckless"
-        clone: yes
-        update: yes
-      become: yes
-      become_user: pablo
-      when: not suckless_folder.stat.exists
+        #    - name: Check if suckless folder exists
+        #      stat:
+        #        path: "~/bin/suckless"
+        #      register: suckless_folder
+        #
+        #    - name: Clone Dwm repo
+        #      git:
+        #        repo: 'https://github.com/harryhosepipe/suckless.git'
+        #        dest: "~/bin/suckless"
+        #        clone: yes
+        #        update: yes
+        #      become: yes
+        #      become_user: pablo
+        #      when: not suckless_folder.stat.exists
 
     - name: Compile and build dwm
       shell: make clean install
       args:
-        chdir: "~/bin/dwm"
-      become: yes
-
-    - name: Change git origin to ssh credentials
+        chdir: "~/bin/suckless/dwm"
       become: yes
       become_user: pablo
-      shell:
-        cmd: git remote set-url origin git@github.com:harryhosepipe/suckless.git
+
+    - name: Compile and build dwmblocks
+      shell: make clean install
+      args:
+        chdir: "~/bin/suckless/dwmblocks"
+      become: yes
+      become_user: pablo
+
+    - name: Compile and build dmenu
+      shell: make clean install
+      args:
+        chdir: "~/bin/suckless/dmenu"
+      become: yes
+      become_user: pablo

@@ -6,25 +6,31 @@
         msg: This play requires that Xorg is running and that you can access web browser like firefox, FIREFOX MUST BE CLOSED.
           PLEASE GET YOUR DROPBOX PASSWORD READY AND CHECK BROWSER
 
-    - name: Download dropbox daemon
+          #    - name: Download dropbox daemon
+          #      become: yes
+          #      become_user: pablo
+          #      shell:
+          #        cmd: cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+
+    - name: Run script to finish
       become: yes
       become_user: pablo
       shell:
-        cmd: cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+        cmd: ./setup_dropbox.sh
 
           #    - name: execute dropbox installer
           #      become_user: pablo
           #      shell:
           #        cmd: ~/.dropbox-dist/dropboxd
 
-    - name: Execute Dropbox Daemon
-      become: yes
-      become_user: pablo
-      shell:
-        cmd: timeout 90 ~/.dropbox-dist/dropboxd
-
-    - name: Setup dropbox folders to sync
-      become: yes
-      become_user: pablo
-      shell:
-        cmd: ~/ansible/dropbox/./setup_dropbox_folders
+          #    - name: Execute Dropbox Daemon
+          #      become: yes
+          #      become_user: pablo
+          #      shell:
+          #        cmd: timeout 90 ~/.dropbox-dist/dropboxd
+          #
+          #    - name: Setup dropbox folders to sync
+          #      become: yes
+          #      become_user: pablo
+          #      shell:
+          #        cmd: ~/ansible/dropbox/./setup_dropbox_folders
