@@ -1,19 +1,52 @@
-  - hosts: localhost
+- name: PRIME THE SYSTEM BRO!
+  hosts: localhost
+  become: yes
+  vars_files:
+    - vars/sec.yml
+  vars:
+    git_username: "Pablo - Flux"
+    git_email: pablo@renderbros.com
+    pablo_home_dir: "/home/pablo"  # Set this to the actual home directory path
 
-    tasks:
+  tasks:
+    - name: Ensure the OS is Arch Linux
+      assert:
+        that:
+          - ansible_os_family == "Archlinux"
+        msg: "This playbook only supports Arch Linux"
 
-      - name: Update package cache
-        pacman:
-          update_cache: yes
+    - name: Update package cache
+      pacman:
+        update_cache: yes
+      register: package_updated
+      ignore_errors: yes
 
-      - name: Install OpenSSH
-        pacman:
-          name: openssh
-          state: present
+    - name: Install OpenSSH
+      package:
+        name: openssh
+        state: present
 
-      - name: Start and enable OpenSSH service
-        systemd:
-          name: sshd
-          state: started
-          enabled: yes
+    - name: Start and enable OpenSSH service
+      systemd:
+        name: sshd
+        state: started
+        enabled: yes
 
+    - name: Ensure .ssh directory exists
+      file:
+        path: "{{ pablo_home_dir }}/.ssh"
+        state: directory
+      become_user: pablo
+
+    - name: Copy GitHub SSH private key
+      copy:
+        content: "{{ github_private_key }}"
+        dest: "{{ pablo_home_dir }}/.ssh/github-ssh"
+        mode: 0600
+      become_user: pablo
+
+    - name: Copy gitconfig to user's home directory
+      template:
+        src: templates/.gitconfig.j2
+        dest: "{{ pablo_home_dir }}/.gitconfig"
+      become_user: pablo
