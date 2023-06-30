@@ -55,3 +55,10 @@
         src: templates/.gitconfig.j2
         dest: "{{ pablo_home_dir }}/.gitconfig"
       become_user: pablo
+
+    - name: Change git ansible remote URL to SSH
+      ansible.builtin.shell: |
+        cd ~/ansible
+        git remote set-url origin git@github.com:harryhosepipe/ansible.git
+      args:
+        executable: /bin/bash
