@@ -18,3 +18,5 @@ mkdir ~/.config
 stow -d ~/slingshot bash-shell
 stow -d ~/slingshot bin
 stow -d ~/slingshot .ssh
+
+source ~/.bashrc
