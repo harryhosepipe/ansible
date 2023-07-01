@@ -20,3 +20,13 @@ stow -d ~/slingshot bin
 stow -d ~/slingshot .ssh
 
 source ~/.bashrc
+
+
+sudo ansible-playbook 02_base_install.yml 
+
+cd slingshot
+stow .ssh
+stow X11SETUP
+stow alacritty
+stow bin
+stow picom

@@ -8,5 +8,6 @@
           update_cache: yes
           upgrade: yes
 
-  - import_playbook: 01_prep.yml 
   - import_playbook: 02_base_install.yml 
+  - import_playbook: 03_dwm.yml 
+

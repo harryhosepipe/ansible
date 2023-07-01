@@ -1,5 +1,21 @@
 
+				ANSIBLE:
+
 01 - MAKE NEOVIM PLAY
 
-figure out how to check video status in X11/Xorg
-Figure out how to get nvidia running
+
+***************************************************************************
+			INSTALL SPECIFIC
+
+AUDIO:
+	Figure out how to make volume louder
+VIDEO:
+	figure out how to check video status in X11/Xorg
+	Figure out how to get nvidia running
+	SETUP PICOM
+
+
+DROPBOX CLEANUP:
+	figure out if possible to move all folders into .config eg
+		.dropbox
+		.dropbox-dist

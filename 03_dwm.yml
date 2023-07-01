@@ -1,0 +1,42 @@
+- hosts: localhost
+  become: yes
+  tasks:
+    - name: Install Dependancies
+      become: yes
+      pacman:
+        name: "{{ packages }}"
+        state: present
+      vars:
+        packages:
+          - libx11
+          - libxinerama
+          - libxft
+          - freetype2
+          - fontconfig
+          - make
+          - gcc
+          - xorg
+          - xorg-server
+          - xorg-xinit
+          - git
+          - firefox
+          - alacritty
+          - ttf-roboto-mono-nerd
+          - ttf-terminus-nerd
+          - unclutter
+
+    - name: Clone Dwm repo
+      git:
+        repo: 'https://github.com/harryhosepipe/suckless.git'
+        dest: "~/bin/suckless"
+        clone: yes
+        update: yes
+      become: yes
+      become_user: pablo
+
+    - name: Compile and build dwm
+      command:
+        cmd: make clean install
+        chdir: "~/bin/suckless/dwm"
+      become: yes
+
