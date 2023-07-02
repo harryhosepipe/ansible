@@ -24,6 +24,7 @@
           - ttf-roboto-mono-nerd
           - ttf-terminus-nerd
           - unclutter
+          - picom
           - nvidia-dkms
 
     - name: Clone Dwm repo
