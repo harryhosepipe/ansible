@@ -62,3 +62,19 @@
         git remote set-url origin git@github.com:harryhosepipe/ansible.git
       args:
         executable: /bin/bash
+
+    - name: Set timezone
+      command: timedatectl set-timezone Africa/Johannesburg
+
+    - name: Set local RTC
+      command: timedatectl set-local-rtc 0 --adjust-system-clock
+
+    - name: Set NTP
+      command: timedatectl set-ntp true
+
+    - name: Configure system time
+      command: "{{ item }}"
+      with_items:
+        - timedatectl set-timezone Africa/Johannesburg
+        - timedatectl set-local-rtc 0 --adjust-system-clock
+        - timedatectl set-ntp true

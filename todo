@@ -1,8 +1,7 @@
 
 				ANSIBLE:
 
-00 - SETUP PLAY TO SETUP COMPATIBLE TIME SYSTEM FOR DUAL BOOT
-00 - figure out if possible to store keepassxc settings
+00 - install linux-headrs
 00 - ansible vault my keepassxc database
 	copy into docs/kpxc/
 
