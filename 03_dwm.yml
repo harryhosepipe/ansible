@@ -47,3 +47,15 @@
         cmd: sudo stow --adopt -t /etc/X11 X11
         chdir: "/home/pablo/slingshot/xorg/"
       become: yes
+        
+    - name: Stow picom
+      ansible.builtin.shell:
+        cmd: stow picom
+        chdir: "/home/pablo/slingshot/"
+      become_user: pablo
+        
+    - name: stow alacritty
+      ansible.builtin.shell:
+        cmd: stow alacritty
+        chdir: "/home/pablo/slingshot/"
+      become_user: pablo
