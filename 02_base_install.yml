@@ -7,6 +7,7 @@
       pacman:
         name:
           - linux-headers
+          - xclip
           - wget
           - git
           - curl

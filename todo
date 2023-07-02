@@ -1,7 +1,6 @@
 
 				ANSIBLE:
 
-00 - install linux-headrs
 00 - ansible vault my keepassxc database
 	copy into docs/kpxc/
 
@@ -14,16 +13,14 @@
 
 
 
+
 ***************************************************************************
 			INSTALL SPECIFIC
 
 AUDIO:
 	Figure out how to make volume louder
+	amixer sset Master 10%+
 VIDEO:
-	figure out how to check video status in X11/Xorg
-	Figure out how to get nvidia running
-	SETUP PICOM
-
 
 DROPBOX CLEANUP:
 	figure out if possible to move all folders into .config eg
