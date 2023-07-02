@@ -4,10 +4,9 @@
   
   tasks:
 
-  - name: Change git remote URL to SSH
-    ansible.builtin.shell: |
-      cd ~/ansible
-      git remote set-url origin git@github.com:harryhosepipe/ansible.git
-    args:
-      executable: /bin/bash
+  - name: Run stow command in specific directory
+    ansible.builtin.shell:
+      cmd: sudo stow --adopt -t /etc/X11 X11
+      chdir: "/home/pablo/slingshot/xorg/"
+    become: yes
 

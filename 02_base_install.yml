@@ -6,6 +6,7 @@
     - name: Install Base
       pacman:
         name:
+          - linux-headers
           - wget
           - git
           - curl
@@ -19,5 +20,6 @@
           - neovim
           - exa
           - keepassxc
+          - nvidia-dkms
         state: present
 ...

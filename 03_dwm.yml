@@ -40,3 +40,8 @@
         chdir: "~/bin/suckless/dwm"
       become: yes
 
+    - name: Stow X11 settings for 4k res
+      ansible.builtin.shell:
+        cmd: sudo stow --adopt -t /etc/X11 X11
+        chdir: "/home/pablo/slingshot/xorg/"
+      become: yes
