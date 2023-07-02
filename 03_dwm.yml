@@ -24,6 +24,7 @@
           - ttf-roboto-mono-nerd
           - ttf-terminus-nerd
           - unclutter
+          - nvidia-dkms
 
     - name: Clone Dwm repo
       git:

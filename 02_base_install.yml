@@ -20,6 +20,5 @@
           - neovim
           - exa
           - keepassxc
-          - nvidia-dkms
         state: present
 ...
