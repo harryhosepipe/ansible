@@ -21,5 +21,11 @@
           - neovim
           - exa
           - keepassxc
+          - mpv
+          - yt-dlp
+          - signal-desktop
+          - dunst
+          - libnotify
+
         state: present
 ...

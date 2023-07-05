@@ -17,11 +17,6 @@
 ***************************************************************************
 			INSTALL SPECIFIC
 
-AUDIO:
-	Figure out how to make volume louder
-	amixer sset Master 10%+
-VIDEO:
-
 DROPBOX CLEANUP:
 	figure out if possible to move all folders into .config eg
 		.dropbox
