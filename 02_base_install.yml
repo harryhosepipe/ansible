@@ -26,6 +26,7 @@
           - signal-desktop
           - dunst
           - libnotify
+          - ntfs-3g
 
         state: present
 ...
